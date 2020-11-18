@@ -135,8 +135,12 @@ func _ready():
 	input_received = false #network thread will set to true when a networked player is found.
 	
 	#set up networking thread
-	UDPPeer.listen(240, "*")
-	UDPPeer.set_dest_address("::1", 241) #::1 is localhost
+	
+	# Switch the values of 240 and 241
+	# to create a player 2 client
+	
+	UDPPeer.listen(241, "*")
+	UDPPeer.set_dest_address("::1", 240) #::1 is localhost
 	input_thread = Thread.new()
 	input_thread.start(self, "thr_network_inputs", null, 2)
 
