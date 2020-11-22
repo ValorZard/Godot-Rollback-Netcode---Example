@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Rollback Netcode - Part 3 (FINAL)"
-run/main_scene="res://Scenes/Stage2DCollisions.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 
 [debug]
 

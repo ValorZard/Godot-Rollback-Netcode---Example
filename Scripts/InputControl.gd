@@ -13,6 +13,8 @@ enum Game {WAITING, PLAYING, END}
 var game = Game.WAITING
 var status = "" #for additional status label info
 
+var is_player_two : bool = false
+
 var input_array = [] #array to hold 256 Inputs
 var state_queue = [] #queue for Frame_States of past frames (for rollback)
 var input_arrival_array = [] #256 boolean array, tracks if networked inputs for a given frame have arrived
@@ -139,10 +141,16 @@ func _ready():
 	# Switch the values of 240 and 241
 	# to create a player 2 client
 	
-	UDPPeer.listen(241, "*")
-	UDPPeer.set_dest_address("::1", 240) #::1 is localhost
-	input_thread = Thread.new()
-	input_thread.start(self, "thr_network_inputs", null, 2)
+	if(is_player_two):
+		UDPPeer.listen(241, "*")
+		UDPPeer.set_dest_address("::1", 240) #::1 is localhost
+		input_thread = Thread.new()
+		input_thread.start(self, "thr_network_inputs", null, 2)
+	else:
+		UDPPeer.listen(240, "*")
+		UDPPeer.set_dest_address("::1", 241) #::1 is localhost
+		input_thread = Thread.new()
+		input_thread.start(self, "thr_network_inputs", null, 2)
 
 
 func _physics_process(_delta):

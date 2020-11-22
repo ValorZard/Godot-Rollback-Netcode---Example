@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/StartButton.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1018.0
+margin_bottom = 598.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="Panel"]
+margin_left = 399.816
+margin_top = 391.178
+margin_right = 618.816
+margin_bottom = 470.178
+text = "Start Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckPlayerPort" type="CheckButton" parent="Panel"]
+margin_left = 397.0
+margin_top = 299.0
+margin_right = 624.0
+margin_bottom = 323.0
+action_mode = 0
+
+[node name="Label" type="Label" parent="Panel/CheckPlayerPort"]
+margin_left = 25.0
+margin_top = 5.0
+margin_right = 140.0
+margin_bottom = 19.0
+text = "Is Player Two"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/StartButton" to="Panel/StartButton" method="_on_StartButton_pressed"]
+[connection signal="button_down" from="Panel/CheckPlayerPort" to="Panel/StartButton" method="_on_CheckPlayerPort_button_down"]
+[connection signal="button_up" from="Panel/CheckPlayerPort" to="Panel/StartButton" method="_on_CheckPlayerPort_button_up"]
+[connection signal="pressed" from="Panel/CheckPlayerPort" to="Panel/StartButton" method="_on_CheckPlayerPort_pressed"]
