@@ -2,11 +2,11 @@
 extends Node
 
 #amount of input delay in frames
-var input_delay = 5 
+var input_delay = 1 
 #number of frame states to save in order to implement rollback (max amount of frames able to rollback)
-var rollback = 7 
+var rollback = 20 
 #frame range of duplicate past input packets to send every frame (should be less than rollback)
-var dup_send_range = 5
+var dup_send_range = 19
 
 #tracks current game status
 enum Game {WAITING, PLAYING, END}
