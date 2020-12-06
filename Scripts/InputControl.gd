@@ -2,11 +2,11 @@
 extends Node
 
 #amount of input delay in frames
-var input_delay = 1 
+var input_delay : int = 1 
 #number of frame states to save in order to implement rollback (max amount of frames able to rollback)
-var rollback = 20 
+var rollback : int = 20 
 #frame range of duplicate past input packets to send every frame (should be less than rollback)
-var dup_send_range = 19
+var dup_send_range :int = 19
 
 #tracks current game status
 enum Game {WAITING, PLAYING, END}
@@ -23,7 +23,7 @@ var prev_frame_arrival_array = [] #boolean array to compare input arrivals betwe
 var input_array_mutex = Mutex.new()
 var input_viable_request_array_mutex = Mutex.new()
 
-var frame_num = 0 #ranges between 0-255 per circular input array cycle (cycle is every 256 frames)
+var frame_num : int = 0 #ranges between 0-255 per circular input array cycle (cycle is every 256 frames)
 
 var input_received #boolean to communicate between threads if new inputs have been received
 var input_received_mutex = Mutex.new()
@@ -31,6 +31,8 @@ var input_received_mutex = Mutex.new()
 var input_thread = null #thread to receive inputs over the network
 
 var UDPPeer = PacketPeerUDP.new()
+
+var address : String = "::1"
 
 #---classes---
 class Inputs:
@@ -138,19 +140,24 @@ func _ready():
 	
 	#set up networking thread
 	
+	UDPPeer.set_broadcast_enabled(true)
+
+	# Connecting to address
+
 	# Switch the values of 240 and 241
 	# to create a player 2 client
 	
 	if(is_player_two):
 		UDPPeer.listen(241, "*")
-		UDPPeer.set_dest_address("::1", 240) #::1 is localhost
+		UDPPeer.set_dest_address(address, 240) #::1 is localhost
 		input_thread = Thread.new()
 		input_thread.start(self, "thr_network_inputs", null, 2)
 	else:
 		UDPPeer.listen(240, "*")
-		UDPPeer.set_dest_address("::1", 241) #::1 is localhost
+		UDPPeer.set_dest_address(address, 241) #::1 is localhost
 		input_thread = Thread.new()
 		input_thread.start(self, "thr_network_inputs", null, 2)
+
 
 
 func _physics_process(_delta):

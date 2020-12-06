@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/StartButton.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/AddressText.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -14,6 +15,17 @@ margin_left = -157.247
 margin_top = -195.928
 margin_right = 860.753
 margin_bottom = 402.072
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddressText" type="TextEdit" parent="Panel"]
+margin_left = 467.0
+margin_top = 351.0
+margin_right = 617.0
+margin_bottom = 372.0
+text = "12.0.0.1"
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,14 +49,20 @@ margin_bottom = 323.0
 action_mode = 0
 
 [node name="Label" type="Label" parent="Panel/CheckPlayerPort"]
-margin_left = 25.0
-margin_top = 5.0
-margin_right = 140.0
-margin_bottom = 19.0
+margin_top = 10.0
+margin_right = 115.0
+margin_bottom = 24.0
 text = "Is Player Two"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AdrLabel" type="Label" parent="Panel"]
+margin_left = 400.351
+margin_top = 354.0
+margin_right = 456.351
+margin_bottom = 368.0
+text = "Address:"
 [connection signal="pressed" from="Panel/StartButton" to="Panel/StartButton" method="_on_StartButton_pressed"]
 [connection signal="button_down" from="Panel/CheckPlayerPort" to="Panel/StartButton" method="_on_CheckPlayerPort_button_down"]
 [connection signal="button_up" from="Panel/CheckPlayerPort" to="Panel/StartButton" method="_on_CheckPlayerPort_button_up"]

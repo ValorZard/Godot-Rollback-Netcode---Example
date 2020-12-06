@@ -4,9 +4,9 @@ extends Button
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var is_player_two = false
+var is_player_two : bool = false
 var network_scene = preload("res://Scenes/Stage2DCollisions.tscn").instance()
-
+var address : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +22,9 @@ func _on_StartButton_pressed():
 	print("hi!")
 	print("Player port 2: " + String(is_player_two))
 	network_scene.get_node("InputControl").is_player_two = is_player_two
+	address = get_parent().get_node("AddressText").text
+	print(address)
+	network_scene.get_node("InputControl").address = address
 	get_tree().get_root().add_child(network_scene)
 	get_tree().get_root().get_node("Control").visible = false
 
