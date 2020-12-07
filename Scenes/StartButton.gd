@@ -22,9 +22,19 @@ func _on_StartButton_pressed():
 	print("hi!")
 	print("Player port 2: " + String(is_player_two))
 	network_scene.get_node("InputControl").is_player_two = is_player_two
-	address = get_parent().get_node("AddressText").text
-	print(address)
+
+	address = get_parent().get_node("AdrLabel/AddressText").text
+	var frame_delay : int = int(get_parent().get_node("FrameLabel/FrameEdit").text)
+	var rollback_frames : int = int(get_parent().get_node("RollbackLabel/RollbackEdit").text)
+	var duplicate_range : int = int(get_parent().get_node("DupRangeLabel/DupRangeEdit").text)
+	
+	#print(address)
 	network_scene.get_node("InputControl").address = address
+	
+	network_scene.get_node("InputControl").input_delay = frame_delay
+	network_scene.get_node("InputControl").rollback = rollback_frames
+	network_scene.get_node("InputControl").dup_send_range  = duplicate_range
+
 	get_tree().get_root().add_child(network_scene)
 	get_tree().get_root().get_node("Control").visible = false
 
