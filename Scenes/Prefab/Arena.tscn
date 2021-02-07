@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Prefab/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Prefab/Wall.tscn" type="PackedScene" id=2]
+
+[node name="Arena" type="Node2D"]
+
+[node name="WallN" parent="." instance=ExtResource( 2 )]
+position = Vector2( 513, 30 )
+scale = Vector2( 50, 1 )
+
+[node name="WallS" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 570 )
+scale = Vector2( 50, 1 )
+
+[node name="WallE" parent="." instance=ExtResource( 2 )]
+position = Vector2( 984, 300 )
+scale = Vector2( 4, 10 )
+
+[node name="WallW" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 300 )
+scale = Vector2( 4, 10 )
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Player" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 512, 490 )
+
+[node name="Enemy" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 512, 110 )
+enemy = true
