@@ -25,11 +25,17 @@ func _on_play_pressed() -> void:
 	var duplicateRange: int = int($Menu/Align/Grid/txtDupRange.text)
 	var port: int = int($Menu/Align/Grid/txtPort.text)
 	
+	var isLocal: bool = $Menu/Align/Grid/checkIsLocal.pressed
+	var isPlayerOne: bool = $Menu/Align/Grid/checkIsPlayerOne.pressed
+	
 	Session.Address = address
 	Session.InputDelay = frameDelay
 	Session.Rollback = rollbackFrames
 	Session.DupSendRange = duplicateRange
 	Session.Port = port
+	
+	Session.IsLocal = isLocal
+	Session.IsPlayerOne = isPlayerOne
 	
 	Session.ready()
 	

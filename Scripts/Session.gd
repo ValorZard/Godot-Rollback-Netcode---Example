@@ -8,6 +8,10 @@ extends Node
 ##############################
 ##############################
 
+# Debug elements/variables
+var IsLocal : bool = false
+var IsPlayerOne : bool = false
+
 # Subscene where players are stored
 onready var lblDetails: Label = get_tree().root.get_node("Game/Gui/Details")
 onready var objects = get_tree().root.get_node("Game/Arena/Objects")
@@ -106,8 +110,17 @@ func ready():
 	upnp.add_port_mapping(Port)
 	
 	# Connecting to end-user
-	peer.listen(Port, "*")
-	peer.set_dest_address(Address, Port)
+	if IsLocal:
+		# When testing locally, we have to make the clients listen on different ports
+		if IsPlayerOne:
+			peer.listen(5000, "*")
+			peer.set_dest_address(Address, 5001)
+		else:
+			peer.listen(5001, "*")
+			peer.set_dest_address(Address, 5000)
+	else:
+		peer.listen(Port, "*")
+		peer.set_dest_address(Address, Port)
 	
 	# Link function pointers to packet headers
 	BindPacketList()
