@@ -23,11 +23,14 @@ func _on_play_pressed() -> void:
 	var frameDelay: int = int($Menu/Align/Grid/txtFrameDelay.text)
 	var rollbackFrames: int = int($Menu/Align/Grid/txtRollback.text)
 	var duplicateRange: int = int($Menu/Align/Grid/txtDupRange.text)
+	var port: int = int($Menu/Align/Grid/txtPort.text)
 	
 	Session.Address = address
 	Session.InputDelay = frameDelay
 	Session.Rollback = rollbackFrames
 	Session.DupSendRange = duplicateRange
+	Session.Port = port
+	
 	Session.ready()
 	
 	# Set state to a valid game state

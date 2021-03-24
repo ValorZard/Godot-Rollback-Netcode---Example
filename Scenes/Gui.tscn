@@ -56,7 +56,7 @@ __meta__ = {
 
 [node name="Grid" type="GridContainer" parent="Menu/Align"]
 margin_right = 300.0
-margin_bottom = 77.0
+margin_bottom = 98.0
 custom_constants/vseparation = 7
 columns = 2
 
@@ -136,10 +136,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btnPlay" type="Button" parent="Menu/Align"]
+[node name="lblPort" type="Label" parent="Menu/Align/Grid"]
+margin_top = 84.0
+margin_right = 148.0
+margin_bottom = 98.0
+text = "Port:"
+
+[node name="txtPort" type="TextEdit" parent="Menu/Align/Grid"]
+margin_left = 152.0
 margin_top = 84.0
 margin_right = 300.0
-margin_bottom = 104.0
+margin_bottom = 98.0
+text = "5678"
+
+[node name="btnPlay" type="Button" parent="Menu/Align"]
+margin_top = 105.0
+margin_right = 300.0
+margin_bottom = 125.0
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
