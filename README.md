@@ -3,6 +3,8 @@
 This is an example of Rollback Netcode implemented in Godot with GDScript and Universal Plug and Play.
 No port forwarding required! 
 
+Major thanks to @SpiceyWolf for contributing to this project.
+
 **PULL REQUESTS WELCOME**
 
 Explanation of Rollback Netcode: https://ki.infil.net/w02-netcode.html
