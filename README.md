@@ -45,6 +45,8 @@ First video in a series on how to do dedicated servers in Godot.[Godot Multiplay
 
 Very minimalistic tutorial on how to set up a godot dedicated server.https://mrminimal.gitlab.io/2018/07/26/godot-dedicated-server-tutorial.html
 
+NAT Holepunching Plugin: https://github.com/SLGamesCregg/HolePuncher
+
 ## General Godot Stuff:
 
 How to format your gdscript code: https://github.com/Scony/godot-gdscript-toolkit
