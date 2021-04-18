@@ -35,6 +35,8 @@ Networked Physics:https://www.gafferongames.com/post/introduction_to_networked_p
 
 Also the full website is pretty cool (General Networking Bible)https://gafferongames.com/
 
+Master list of resources: https://github.com/MFatihMAR/Game-Networking-Resources
+
 ## Godot Networking:
 
 Basic multiplayer documentation: https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html
