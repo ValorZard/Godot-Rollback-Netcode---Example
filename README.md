@@ -22,6 +22,8 @@ For testing on a single computer, you will want to have two different clients op
 - Add more players
 - Integrate fixed point libraries
   - Current plan is to create a fork of Box2D with the C++ Library fpm to make it deterministic and then make that a Godot module.
+  - Alternatively, we could use [this library](https://github.com/91Act/box2d_fixed) that's already a fork of Box2D thats determinisitic
+  - Biggest problem is figuring out how to add custom phsyics to Godot
 
 # Resources
 
