@@ -3,6 +3,8 @@
 This is an example of Rollback Netcode implemented in Godot with GDScript and Universal Plug and Play.
 No port forwarding required! 
 
+If you want a more production ready version of this netcode, complete with WebRTC support and possible steam integration, then I suggest you check out the rollback branch of this projecy:  https://gitlab.com/snopek-games/godot-nakama-webrtc
+
 Major thanks to @SpiceyWolf for contributing to this project.
 
 **PULL REQUESTS WELCOME**
